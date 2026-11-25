@@ -1,0 +1,22 @@
+name: superelnino
+channels:
+  - conda-forge
+dependencies:
+  - python=3.12
+  - xarray
+  - dask
+  - netcdf4
+  - h5netcdf
+  - h5py
+  - zarr<3
+  - rioxarray
+  - geopandas
+  - regionmask
+  - pandas
+  - pyarrow
+  - requests
+  - cdsapi
+  - intake-esm
+  - s3fs
+  - gcsfs
+  - exactextract
