@@ -57,7 +57,8 @@ prepare_timeseries = function(unit_summaries) {
 
 read_final_timeseries = function() {
   read_csv(final_file, col_types = cols(model = 'c', park = 'c')) %>%
-    mutate(dataset_label = factor(dataset_label, levels = dataset_labels),
+    mutate(model = replace_na(model, ''),
+           dataset_label = factor(dataset_label, levels = dataset_labels),
            line_type = factor(line_type, levels = line_types))
 }
 
