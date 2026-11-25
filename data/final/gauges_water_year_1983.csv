@@ -1,0 +1,151 @@
+id,label,panel_order,source,status,days_reported,pr_mm
+USC00042092,"DEVA: Cow Creek
+-46 m, inside park",3,PRISM 4 km,gridded dataset,NA,135.14898681640625
+USC00042319,"DEVA: Death Valley Np
+-59 m, inside park",1,PRISM 4 km,gridded dataset,NA,107.34400177001952
+USC00043603,"DEVA: Greenland Rch
+-51 m, inside park",2,PRISM 4 km,gridded dataset,NA,107.34400177001952
+USC00048200,"DEVA: Shoshone
+471 m, 2.9 km outside park",5,PRISM 4 km,gridded dataset,NA,254.0679931640625
+USC00049671,"DEVA: Wildrose Rs
+1250 m, inside park",6,PRISM 4 km,gridded dataset,NA,450.97601318359375
+USW00053139,"DEVA: Stovepipe Wells 1 Sw
+26 m, inside park",4,PRISM 4 km,gridded dataset,NA,156.23399353027344
+US1CASR0014,"JOTR: Joshua Tree 2.0 S
+1039 m, inside park",12,PRISM 4 km,gridded dataset,NA,688.0059814453125
+USC00041738,"JOTR: Chiriaco Summit
+520 m, 1 km outside park",9,PRISM 4 km,gridded dataset,NA,303.68402099609375
+USC00042598,"JOTR: Eagle Mtn
+297 m, 1.8 km outside park",7,PRISM 4 km,gridded dataset,NA,324.7359924316406
+USC00043855,"JOTR: Hayfield Pumping Plt
+418 m, 0.7 km outside park",8,PRISM 4 km,gridded dataset,NA,308.5690002441406
+USC00044405,"JOTR: Joshua Tree
+781 m, 2.4 km outside park",11,PRISM 4 km,gridded dataset,NA,537.0460205078125
+USC00049099,"JOTR: Twentynine Palms
+602 m, inside park",10,PRISM 4 km,gridded dataset,NA,330.9280090332031
+USC00042327,"JOTR: Deep Canyon Lab
+366 m, 28.5 km outside park, mountain station",13,PRISM 4 km,gridded dataset,NA,469.5060119628906
+USC00048317,"JOTR: Snow Creek Upper
+591 m, 23.4 km outside park, mountain station",14,PRISM 4 km,gridded dataset,NA,880.56591796875
+USC00044211,"JOTR: Idyllwild Fire Dept
+1640 m, 33.4 km outside park, mountain station",15,PRISM 4 km,gridded dataset,NA,1509.2110595703125
+USC00042092,"DEVA: Cow Creek
+-46 m, inside park",3,ERA5,gridded dataset,NA,326.3607177734375
+USC00042319,"DEVA: Death Valley Np
+-59 m, inside park",1,ERA5,gridded dataset,NA,406.503662109375
+USC00043603,"DEVA: Greenland Rch
+-51 m, inside park",2,ERA5,gridded dataset,NA,406.503662109375
+USC00048200,"DEVA: Shoshone
+471 m, 2.9 km outside park",5,ERA5,gridded dataset,NA,270.64324951171875
+USC00049671,"DEVA: Wildrose Rs
+1250 m, inside park",6,ERA5,gridded dataset,NA,362.83685302734375
+USW00053139,"DEVA: Stovepipe Wells 1 Sw
+26 m, inside park",4,ERA5,gridded dataset,NA,370.36322021484375
+US1CASR0014,"JOTR: Joshua Tree 2.0 S
+1039 m, inside park",12,ERA5,gridded dataset,NA,328.9756774902344
+USC00041738,"JOTR: Chiriaco Summit
+520 m, 1 km outside park",9,ERA5,gridded dataset,NA,376.08148193359375
+USC00042598,"JOTR: Eagle Mtn
+297 m, 1.8 km outside park",7,ERA5,gridded dataset,NA,322.2846984863281
+USC00043855,"JOTR: Hayfield Pumping Plt
+418 m, 0.7 km outside park",8,ERA5,gridded dataset,NA,376.08148193359375
+USC00044405,"JOTR: Joshua Tree
+781 m, 2.4 km outside park",11,ERA5,gridded dataset,NA,302.0973205566406
+USC00049099,"JOTR: Twentynine Palms
+602 m, inside park",10,ERA5,gridded dataset,NA,285.8524169921875
+USC00042327,"JOTR: Deep Canyon Lab
+366 m, 28.5 km outside park, mountain station",13,ERA5,gridded dataset,NA,490.60247802734375
+USC00048317,"JOTR: Snow Creek Upper
+591 m, 23.4 km outside park, mountain station",14,ERA5,gridded dataset,NA,754.49560546875
+USC00044211,"JOTR: Idyllwild Fire Dept
+1640 m, 33.4 km outside park, mountain station",15,ERA5,gridded dataset,NA,754.49560546875
+USC00042092,"DEVA: Cow Creek
+-46 m, inside park",3,ERA5-Land,gridded dataset,NA,357.8828430175781
+USC00042319,"DEVA: Death Valley Np
+-59 m, inside park",1,ERA5-Land,gridded dataset,NA,357.8828430175781
+USC00043603,"DEVA: Greenland Rch
+-51 m, inside park",2,ERA5-Land,gridded dataset,NA,357.8828430175781
+USC00048200,"DEVA: Shoshone
+471 m, 2.9 km outside park",5,ERA5-Land,gridded dataset,NA,252.377197265625
+USC00049671,"DEVA: Wildrose Rs
+1250 m, inside park",6,ERA5-Land,gridded dataset,NA,387.0504455566406
+USW00053139,"DEVA: Stovepipe Wells 1 Sw
+26 m, inside park",4,ERA5-Land,gridded dataset,NA,295.858642578125
+US1CASR0014,"JOTR: Joshua Tree 2.0 S
+1039 m, inside park",12,ERA5-Land,gridded dataset,NA,350.8695373535156
+USC00041738,"JOTR: Chiriaco Summit
+520 m, 1 km outside park",9,ERA5-Land,gridded dataset,NA,370.8832702636719
+USC00042598,"JOTR: Eagle Mtn
+297 m, 1.8 km outside park",7,ERA5-Land,gridded dataset,NA,313.72735595703125
+USC00043855,"JOTR: Hayfield Pumping Plt
+418 m, 0.7 km outside park",8,ERA5-Land,gridded dataset,NA,349.73046875
+USC00044405,"JOTR: Joshua Tree
+781 m, 2.4 km outside park",11,ERA5-Land,gridded dataset,NA,350.8695373535156
+USC00049099,"JOTR: Twentynine Palms
+602 m, inside park",10,ERA5-Land,gridded dataset,NA,351.7476806640625
+USC00042327,"JOTR: Deep Canyon Lab
+366 m, 28.5 km outside park, mountain station",13,ERA5-Land,gridded dataset,NA,481.9462585449219
+USC00048317,"JOTR: Snow Creek Upper
+591 m, 23.4 km outside park, mountain station",14,ERA5-Land,gridded dataset,NA,609.45556640625
+USC00044211,"JOTR: Idyllwild Fire Dept
+1640 m, 33.4 km outside park, mountain station",15,ERA5-Land,gridded dataset,NA,647.6007080078125
+USC00042092,"DEVA: Cow Creek
+-46 m, inside park",3,Pierce et al. 2021,gridded dataset,NA,113.6469497680664
+USC00042319,"DEVA: Death Valley Np
+-59 m, inside park",1,Pierce et al. 2021,gridded dataset,NA,135.804931640625
+USC00043603,"DEVA: Greenland Rch
+-51 m, inside park",2,Pierce et al. 2021,gridded dataset,NA,135.804931640625
+USC00048200,"DEVA: Shoshone
+471 m, 2.9 km outside park",5,Pierce et al. 2021,gridded dataset,NA,270.541015625
+USC00049671,"DEVA: Wildrose Rs
+1250 m, inside park",6,Pierce et al. 2021,gridded dataset,NA,536.50286865234375
+USW00053139,"DEVA: Stovepipe Wells 1 Sw
+26 m, inside park",4,Pierce et al. 2021,gridded dataset,NA,110.64348602294922
+US1CASR0014,"JOTR: Joshua Tree 2.0 S
+1039 m, inside park",12,Pierce et al. 2021,gridded dataset,NA,504.9924926757813
+USC00041738,"JOTR: Chiriaco Summit
+520 m, 1 km outside park",9,Pierce et al. 2021,gridded dataset,NA,269.37469482421875
+USC00042598,"JOTR: Eagle Mtn
+297 m, 1.8 km outside park",7,Pierce et al. 2021,gridded dataset,NA,287.3378601074219
+USC00043855,"JOTR: Hayfield Pumping Plt
+418 m, 0.7 km outside park",8,Pierce et al. 2021,gridded dataset,NA,280.2132568359375
+USC00044405,"JOTR: Joshua Tree
+781 m, 2.4 km outside park",11,Pierce et al. 2021,gridded dataset,NA,438.5144958496094
+USC00049099,"JOTR: Twentynine Palms
+602 m, inside park",10,Pierce et al. 2021,gridded dataset,NA,270.0590515136719
+USC00042327,"JOTR: Deep Canyon Lab
+366 m, 28.5 km outside park, mountain station",13,Pierce et al. 2021,gridded dataset,NA,555.4129638671875
+USC00048317,"JOTR: Snow Creek Upper
+591 m, 23.4 km outside park, mountain station",14,Pierce et al. 2021,gridded dataset,NA,1058.14599609375
+USC00044211,"JOTR: Idyllwild Fire Dept
+1640 m, 33.4 km outside park, mountain station",15,Pierce et al. 2021,gridded dataset,NA,1528.087890625
+USC00042319,"DEVA: Death Valley Np
+-59 m, inside park",1,Rain gauge (NOAA GHCN-Daily),complete,365,106.4
+USC00048200,"DEVA: Shoshone
+471 m, 2.9 km outside park",5,Rain gauge (NOAA GHCN-Daily),complete,364,258.9
+USC00049671,"DEVA: Wildrose Rs
+1250 m, inside park",6,Rain gauge (NOAA GHCN-Daily),complete,365,397
+USC00042598,"JOTR: Eagle Mtn
+297 m, 1.8 km outside park",7,Rain gauge (NOAA GHCN-Daily),complete,365,332.1
+USC00043855,"JOTR: Hayfield Pumping Plt
+418 m, 0.7 km outside park",8,Rain gauge (NOAA GHCN-Daily),complete,363,273.2
+USC00049099,"JOTR: Twentynine Palms
+602 m, inside park",10,Rain gauge (NOAA GHCN-Daily),complete,365,329.1
+USC00042327,"JOTR: Deep Canyon Lab
+366 m, 28.5 km outside park, mountain station",13,Rain gauge (NOAA GHCN-Daily),complete,364,566.9
+USC00048317,"JOTR: Snow Creek Upper
+591 m, 23.4 km outside park, mountain station",14,Rain gauge (NOAA GHCN-Daily),complete,364,806.6999999999999
+USC00044211,"JOTR: Idyllwild Fire Dept
+1640 m, 33.4 km outside park, mountain station",15,Rain gauge (NOAA GHCN-Daily),complete,365,1373.7
+USC00043603,"DEVA: Greenland Rch
+-51 m, inside park",2,Rain gauge (NOAA GHCN-Daily),no readings,NA,NA
+USC00042092,"DEVA: Cow Creek
+-46 m, inside park",3,Rain gauge (NOAA GHCN-Daily),no readings,NA,NA
+USW00053139,"DEVA: Stovepipe Wells 1 Sw
+26 m, inside park",4,Rain gauge (NOAA GHCN-Daily),no readings,NA,NA
+USC00041738,"JOTR: Chiriaco Summit
+520 m, 1 km outside park",9,Rain gauge (NOAA GHCN-Daily),no readings,NA,NA
+USC00044405,"JOTR: Joshua Tree
+781 m, 2.4 km outside park",11,Rain gauge (NOAA GHCN-Daily),no readings,NA,NA
+US1CASR0014,"JOTR: Joshua Tree 2.0 S
+1039 m, inside park",12,Rain gauge (NOAA GHCN-Daily),no readings,NA,NA

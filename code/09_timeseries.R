@@ -2,11 +2,16 @@ library(tidyverse)
 
 reference_years = c(1951, 1980)
 event_year = 1983
-observation_colour = '#1f5a96'
+final_file = 'data/final/timeseries_water_year_pr.csv.gz'
 dataset_labels = c(prism_4km = 'PRISM 4 km', era5 = 'ERA5',
                    era5_land = 'ERA5-Land', pierce = 'Pierce et al. 2021',
                    caladapt_loca2 = 'CalAdapt LOCA2-Hybrid',
                    cmip6 = 'CMIP6', isimip3b = 'ISIMIP3b')
+line_types = c('model run', 'model median', 'observation')
+line_colours = c('model run' = 'grey65', 'model median' = 'black',
+                 'observation' = '#1f5a96')
+
+# Processing
 
 read_unit_summary = function(file) {
   read_csv(file, col_types = cols(model = 'c', park = 'c'))
@@ -19,19 +24,41 @@ read_unit_summaries = function() {
     bind_rows()
 }
 
-label_datasets = function(water_year_pr) {
-  water_year_pr %>%
+whole_units = function(unit_summaries) {
+  unit_summaries %>%
     filter(!california_only) %>%
     mutate(model = replace_na(model, ''),
-           is_model = model != '',
-           dataset = factor(dataset_labels[dataset], levels = dataset_labels))
+           line_type = if_else(model == '', 'observation', 'model run'))
 }
 
 ensemble_median = function(water_year_pr) {
   water_year_pr %>%
-    filter(is_model) %>%
+    filter(line_type == 'model run') %>%
     group_by(dataset, level, park, unit, water_year) %>%
-    summarise(pr_mm = median(pr_mm), .groups = 'drop')
+    summarise(pr_mm = median(pr_mm), .groups = 'drop') %>%
+    mutate(model = 'median', line_type = 'model median')
+}
+
+drop_model_runs_for_plots = function(water_year_pr) {
+  water_year_pr %>%
+    filter(!(level == 'plot' & line_type == 'model run'))
+}
+
+prepare_timeseries = function(unit_summaries) {
+  water_year_pr = whole_units(unit_summaries)
+  bind_rows(water_year_pr, ensemble_median(water_year_pr)) %>%
+    drop_model_runs_for_plots() %>%
+    mutate(dataset_label = dataset_labels[dataset]) %>%
+    select(dataset, dataset_label, model, line_type, level, park, unit,
+           water_year, pr_mm)
+}
+
+# Plotting
+
+read_final_timeseries = function() {
+  read_csv(final_file, col_types = cols(model = 'c', park = 'c')) %>%
+    mutate(dataset_label = factor(dataset_label, levels = dataset_labels),
+           line_type = factor(line_type, levels = line_types))
 }
 
 add_timeseries_layout = function(plot) {
@@ -52,52 +79,59 @@ add_timeseries_layout = function(plot) {
           plot.caption = element_text(hjust = 0))
 }
 
-add_model_runs = function(plot, water_year_pr) {
-  plot +
-    geom_line(data = filter(water_year_pr, is_model),
-              aes(group = interaction(unit, model)), colour = 'grey65',
-              linewidth = 0.2)
-}
-
-plot_timeseries = function(water_year_pr, facet_rows, show_model_runs) {
-  line_width = if_else(show_model_runs, 0.5, 0.2)
-  subtitle = if_else(show_model_runs,
-                     str_glue('Blue: observations. Grey: single model runs, ',
-                              'black: median over all model runs.'),
-                     str_glue('One line per I&M plot. Blue: observations. ',
-                              'Black: median over all model runs.'))
-  plot = ggplot(mapping = aes(x = water_year, y = pr_mm, group = unit)) %>%
-    add_timeseries_layout()
-  if (show_model_runs) plot = add_model_runs(plot, water_year_pr)
-  plot +
-    geom_line(data = ensemble_median(water_year_pr), colour = 'black',
-              linewidth = line_width) +
-    geom_line(data = filter(water_year_pr, !is_model),
-              colour = observation_colour, linewidth = line_width) +
-    facet_grid(reformulate('dataset', facet_rows), scales = 'free_y') +
+plot_timeseries = function(timeseries, facet_rows, line_widths, subtitle) {
+  plot = ggplot(timeseries,
+                aes(x = water_year, y = pr_mm, colour = line_type,
+                    linewidth = line_type,
+                    group = interaction(line_type, unit, model)))
+  add_timeseries_layout(plot) +
+    geom_line() +
+    scale_colour_manual(values = line_colours, guide = 'none') +
+    scale_linewidth_manual(values = line_widths, guide = 'none') +
+    facet_grid(reformulate('dataset_label', facet_rows), scales = 'free_y') +
     labs(subtitle = subtitle)
 }
 
+plot_area_timeseries = function(timeseries) {
+  plot_timeseries(timeseries, facet_rows = 'unit',
+                  line_widths = c(0.2, 0.5, 0.5),
+                  subtitle = str_glue('Blue: observations. Grey: single ',
+                                      'model runs, black: median over all ',
+                                      'model runs.'))
+}
+
+plot_im_plot_timeseries = function(timeseries) {
+  plot_timeseries(timeseries, facet_rows = 'park',
+                  line_widths = c(0.2, 0.2, 0.2),
+                  subtitle = str_glue('One line per I&M plot. Blue: ',
+                                      'observations. Black: median over all ',
+                                      'model runs.'))
+}
+
 save_figure = function(plot, name, width, height) {
-  ggsave(str_glue('outputs/figures/{name}.png'), plot, width = width,
+  ggsave(str_glue('figures/{name}.png'), plot, width = width,
          height = height, dpi = 200)
 }
 
-dir.create('outputs/figures', recursive = TRUE, showWarnings = FALSE)
-water_year_pr = read_unit_summaries() %>%
-  label_datasets()
+dir.create('data/final', showWarnings = FALSE)
+read_unit_summaries() %>%
+  prepare_timeseries() %>%
+  write_csv(final_file)
 
-water_year_pr %>%
+dir.create('figures', showWarnings = FALSE)
+timeseries = read_final_timeseries()
+
+timeseries %>%
   filter(level == 'region') %>%
-  plot_timeseries(facet_rows = 'unit', show_model_runs = TRUE) %>%
+  plot_area_timeseries() %>%
   save_figure('timeseries_mojave', width = 16, height = 3.8)
 
-water_year_pr %>%
+timeseries %>%
   filter(level == 'park') %>%
-  plot_timeseries(facet_rows = 'unit', show_model_runs = TRUE) %>%
+  plot_area_timeseries() %>%
   save_figure('timeseries_parks', width = 16, height = 6)
 
-water_year_pr %>%
+timeseries %>%
   filter(level == 'plot') %>%
-  plot_timeseries(facet_rows = 'park', show_model_runs = FALSE) %>%
+  plot_im_plot_timeseries() %>%
   save_figure('timeseries_im_plots', width = 16, height = 6)

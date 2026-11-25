@@ -1,0 +1,14 @@
+# Data: only the final data behind the figures and the original shapefiles
+# are tracked. Everything else is downloaded or rebuilt by the scripts.
+data/*
+!data/final/
+!data/raw/
+data/raw/*
+!data/raw/boundaries/
+!data/raw/im_plots/
+
+logs/
+__pycache__/
+.DS_Store
+.Rhistory
+.Rproj.user/

@@ -64,6 +64,16 @@ save_boundary = function(boundary, name) {
            delete_dsn = TRUE, quiet = TRUE)
 }
 
+save_final_boundary = function(boundary, name) {
+  st_write(boundary, 'data/final/boundaries.gpkg', layer = name,
+           append = FALSE, quiet = TRUE)
+}
+
 list(mojave = mojave, mojave_ca = mojave_ca, parks = parks,
      parks_ca = parks_ca, im_plots = im_plots) %>%
   iwalk(save_boundary)
+
+dir.create('data/final', showWarnings = FALSE)
+list(mojave = mojave, parks = parks, im_plots = im_plots,
+     im_plot_centres = st_centroid(im_plots)) %>%
+  iwalk(save_final_boundary)

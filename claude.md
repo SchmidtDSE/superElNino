@@ -31,3 +31,7 @@
 - Units checks: CalAdapt mon = mean daily rate kg m-2 s-1 (verified vs day). ERA5 monthly means tp = m/day. Pierce PRCP mm/day, var dims (Time, lat, lon), contiguous uncompressed HDF5 -> fsspec range reads. ISIMIP pr kg m-2 s-1 daily. PRISM mm.
 - NOTE climate_futures/caladapt files were made with resample().sum() of daily rates -> value*86400 = mm (different from CalAdapt 'mon' table).
 - Logs in logs/.
+
+## data/final + git (2026-11-25)
+- Figure scripts 09/10/12/13: '# Processing' functions write data/final/*, '# Plotting' functions read only data/final. 01_boundaries.R writes data/final/boundaries.gpkg (mojave, parks, im_plots, im_plot_centres).
+- .gitignore tracks data/final, data/raw/boundaries, data/raw/im_plots only. User must run `git rm -r --cached data logs` to untrack previously committed data (history keeps them).

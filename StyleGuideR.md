@@ -1,5 +1,7 @@
 ### General rules for writing R code
 
+These rules always apply.
+
 - Do not use `<-` fo r assignment, use `=` instead
 - Use `%>%` pipe operator
 - Use `snake_case` for variable and function names
@@ -14,5 +16,11 @@
 - Lines should never end with `(` or start with `)`
 - Whenever possible, use functions from the `tidyverse` collection of packages
 - Use comments very sparingly. The ideal code does not need any comments, but it self-documenting through variable, data set and function names
+
+### Additional rules for final analysis code
+
+These rules apply to final, clean code of a scientific project, not to quick exploration.
+
 - Structure analysis code with functions. Any data-processing step longer than two lines of native tidyverse code should become a named function whose name says what the step does. The main part of a script should then read as a short sequence of these named steps.
 - Use named functions instead of anonymous functions (`\(x) ...` or `function(x) ...` written inline).
+- Keep data processing and plotting separate. Processing functions prepare everything a figure needs and write it to `data/final`. Plotting functions do no processing: they only read from `data/final` and draw, so every figure can be reproduced from `data/final` alone.

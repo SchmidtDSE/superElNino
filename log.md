@@ -143,3 +143,17 @@ I checked four neighbouring folders (`climate_futures`, `climate_data_pipeline`,
 - New: `code/13_gauge_map.R` makes `gauges_map.png`, showing where all gauges are relative to the parks and the I&M plots.
 - `data/interim/pierce/` is kept for now.
 - Renamed the internal helper `extract_by_unit` to `mean_by_unit_with_partial_cells` in `climate_tools.py`.
+
+## 2026-11-25: Processing separated from plotting, data/final, .gitignore
+
+- Each figure script (`09`, `10`, `12`, `13`) now has a processing part and a plotting part. Processing prepares everything a figure needs and writes it to `data/final/`. Plotting reads only from `data/final/` and draws. `01_boundaries.R` also writes the outlines used in the maps to `data/final/boundaries.gpkg` (Mojave, parks, plot squares, plot centres).
+- `data/final/` (12 MB):
+  - `timeseries_water_year_pr.csv.gz`: yearly totals for the Mojave, parks and plots, including the model medians. A `line_type` column says whether each line is an observation, a model run or a model median.
+  - `anomaly_maps.csv.gz`: the plotted maps. One water year per dataset or model run, with the 1951–1980 average and the percentage.
+  - `gauges_timeseries.csv` and `gauges_water_year_1983.csv`: data of the gauge figures. The 1983 status of each gauge (complete, incomplete, no readings) is decided in processing.
+  - `gauge_map_stations.csv` and `gauge_map_extents.csv`: data of the gauge map.
+  - `boundaries.gpkg`.
+- All figures were re-made. They look the same as before.
+- `StyleGuideR.md` now has two sections: general rules (always), and additional rules for final analysis code (functions, no anonymous functions, processing separate from plotting).
+- New `.gitignore`: only `data/final/`, `data/raw/boundaries/` and `data/raw/im_plots/` are tracked in `data/`. `logs/` and Python cache files are ignored.
+- Figures moved from `outputs/figures/` to `figures/` (the only output folder); they are tracked in git.
